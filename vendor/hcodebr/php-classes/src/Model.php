@@ -23,15 +23,12 @@ class Model {
 
 		$method = substr($name, 0, 3);
 		$fieldName = substr($name, 3, strlen($name));
-
-		if (in_array($fieldName, $this->fields))
-		{
 			
 			switch ($method)
 			{
 
 				case "get":
-					return $this->values[$fieldName];
+					return (isset($this->values[$fieldName])) ? $this->values[$fieldName] : NULL;
 				break;
 
 				case "set":
@@ -41,8 +38,6 @@ class Model {
 			}
 
 		}
-
-	}
 
 	public function getValues()
 	{
